@@ -1,13 +1,14 @@
 import re
-from pdf2image import convert_from_path
+import argparse
 import pytesseract
-from pypdf import PdfReader, PdfWriter
+import os
 from collections import defaultdict
 from fuzzywuzzy import fuzz
-import os
-import argparse
+from pdf2image import convert_from_path
+from pypdf import PdfReader, PdfWriter
 
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+print(f"TESSDATA_PREFIX: {os.environ.get('TESSDATA_PREFIX')}")
 
 def extract_product_name(text):
     product_match = re.search(r'Nội dung hàng.*?\n(.*?)SL:', text, re.DOTALL)
