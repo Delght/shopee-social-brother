@@ -1,0 +1,13 @@
+version: '3'
+services:
+  pdf_processor:
+    build: .
+    container_name: pdf_processor
+    volumes:
+      - ./input:/usr/src/app/input  
+      - ./output:/usr/src/app/output 
+    environment:
+      - TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata/
+    mem_limit: 4g  # Increase memory limit to 4GB
+    memswap_limit: 4g  # Ensure swap is also limited to 4GB
+    command: ["python", "classify.py", "input/test_first_100_pages.pdf", "output"]
