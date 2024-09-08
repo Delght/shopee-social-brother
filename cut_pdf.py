@@ -11,6 +11,6 @@ def cut_pdf(input_path, output_path, pages_to_keep):
         writer.write(output_file)
 
 # Usage
-input_file = "test.pdf"
-output_file = "test_first_1_pages.pdf"
-cut_pdf(input_file, output_file, 1)
+input_file = "input/test.pdf"
+output_file = "input/test_first_100_pages.pdf"
+cut_pdf(input_file, output_file, 100)

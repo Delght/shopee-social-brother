@@ -7,6 +7,6 @@ services:
       - ./output:/usr/src/app/output 
     environment:
       - TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata/
-    mem_limit: 4g
-    memswap_limit: 4g
-    command: ["python", "classify.py", "input/test_first_100_pages.pdf", "output"]
+    mem_limit: 16g
+    memswap_limit: 16g
+    command: ["python", "classify.py", "input/test.pdf", "output"]
